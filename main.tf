@@ -1,7 +1,14 @@
-provider "aws" {
-  region = "us-east-1"
+terraform {
+  required_providers {
+    local = {
+      source = "hashicorp/local"
+    }
+  }
 }
 
-resource "aws_iam_user" "my_user" {
-  name = "example-user"
+provider "local" {}
+
+resource "local_file" "example" {
+  content  = "This file was created by Terraform!"
+  filename = "${path.module}/hello_from_terraform.txt"
 }
