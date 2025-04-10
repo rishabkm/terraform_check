@@ -20,5 +20,6 @@ resource "time_offset" "ist_time" {
 
 resource "local_file" "example" {
   content  = "This file was created by Terraform at ${time_offset.ist_time.rfc3339}"
-  filename = "${path.module}/hello_from_terraform.txt"
+  filename = "C:/Users/risha/OneDrive/Desktop/terraform-jenkins/hello_from_terraform.txt"
+
 }
