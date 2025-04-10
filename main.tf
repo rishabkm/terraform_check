@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     local = {
-      source = "hashicorp/local"
+      source  = "hashicorp/local"
     }
   }
 }
@@ -9,6 +9,6 @@ terraform {
 provider "local" {}
 
 resource "local_file" "example" {
-  content  = "This file was created by Terraform! This is ballu "
+  content  = "This file was created by Terraform at ${timestamp()}"
   filename = "${path.module}/hello_from_terraform.txt"
 }
