@@ -1,14 +1,8 @@
-terraform {
-  required_providers {
-    local = {
-      source = "hashicorp/local"
-    }
-  }
+variable "filename" {
+  default = "default_log.txt"
 }
 
-provider "local" {}
-
 resource "local_file" "example" {
-  content  = "This file was created by Terraform!"
-  filename = "${path.module}/my_new_file.txt"
+  content  = "Created by Jenkins Build ID"
+  filename = "${path.module}/${var.filename}"
 }
