@@ -10,5 +10,5 @@ provider "local" {}
 
 resource "local_file" "example" {
   content  = "This file was created by Terraform!"
-  filename = "${path.module}/hello_from_terraform.txt"
+  filename = "${path.module}/my_new_file.txt"
 }
