@@ -2,27 +2,33 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone') {
+        stage('Clone Terraform Repo') {
             steps {
-                git 'https://github.com/your-username/terraform-jenkins-demo.git'
+                git 'https://github.com/rishabkm/terraform_check'
             }
         }
 
-        stage('Init') {
+        stage('Terraform Init') {
             steps {
-                bat 'terraform init'
+                dir('./') {
+                    sh 'terraform init'
+                }
             }
         }
 
-        stage('Plan') {
+        stage('Terraform Plan') {
             steps {
-                bat 'terraform plan'
+                dir('./') {
+                    sh 'terraform plan'
+                }
             }
         }
 
-        stage('Apply') {
+        stage('Terraform Apply') {
             steps {
-                bat 'terraform apply -auto-approve'
+                dir('./') {
+                    sh 'terraform apply -auto-approve'
+                }
             }
         }
     }
